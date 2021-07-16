@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'school',
+    'school_new'
 ]
 
 MIDDLEWARE = [
@@ -75,27 +77,27 @@ WSGI_APPLICATION = 'testdb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#    }
-#}
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'sql_server.pyodbc',
-        'HOST': '192.168.99.102',
-        'PORT': '1433',
-        'NAME': 'School',
-        'USER': 'sa',
-        'PASSWORD': 'Strong@Passw0rd',
-
-        'OPTIONS': {
-            'driver': 'ODBC Driver 17 for SQL Server',
-        },
-    },
+   'default': {
+       'ENGINE': 'django.db.backends.sqlite3',
+       'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+   }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'sql_server.pyodbc',
+#         'HOST': '192.168.99.102',
+#         'PORT': '1433',
+#         'NAME': 'School',
+#         'USER': 'sa',
+#         'PASSWORD': 'Strong@Passw0rd',
+
+#         'OPTIONS': {
+#             'driver': 'ODBC Driver 17 for SQL Server',
+#         },
+#     },
+# }
 
 
 # Password validation
@@ -135,4 +137,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/Users/phani/wdir/pyprojects/testdb/testdb/static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
